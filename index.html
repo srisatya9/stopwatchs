@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stopwatch</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -11,12 +11,13 @@
     <h1>Stopwatch</h1>
     <div id="display">00:00:00</div>
     <div class="buttons">
-      <button onclick="start()">Start</button>
-      <button onclick="stop()">Stop</button>
-      <button onclick="reset()">Reset</button>
+      <button id="start-btn">Start</button>
+      <button id="stop-btn" disabled>Stop</button>
+      <button id="reset-btn" disabled>Reset</button>
     </div>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
