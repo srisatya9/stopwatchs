@@ -5,58 +5,30 @@
 }
 
 body {
-  background-color: #f7f7f7;
   font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.stopwatch {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-.timer {
-  width: 200px;
-  height: 200px;
-  border: 10px solid #333;
-  border-radius: 50%;
-  position: relative;
+#display {
+  font-size: 48px;
   margin-bottom: 20px;
-  background-color: #fff;
-}
-
-.hand {
-  width: 4px;
-  height: 100px;
-  background-color: #333;
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform-origin: 50% 90%;
-  animation: rotate 60s infinite linear;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.button-container {
-  display: flex;
-  gap: 10px;
 }
 
 button {
   padding: 10px 20px;
+  margin: 0 10px;
   font-size: 16px;
   cursor: pointer;
   border: none;
@@ -67,4 +39,9 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
