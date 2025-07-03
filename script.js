@@ -1,68 +1,47 @@
-let seconds = 0;
-let minutes = 0;
-let hours = 0;
-let timer = null;
-let isRunning = false;
-
-const display = document.getElementById('display');
-const startButton = document.getElementById('start-btn');
-const stopButton = document.getElementById('stop-btn');
-const resetButton = document.getElementById('reset-btn');
-
-// Function to update the stopwatch display
-function updateDisplay() {
-  const h = hours < 10 ? "0" + hours : hours;
-  const m = minutes < 10 ? "0" + minutes : minutes;
-  const s = seconds < 10 ? "0" + seconds : seconds;
-  display.innerText = `${h}:${m}:${s}`;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-// Function to start the stopwatch
-function start() {
-  if (isRunning) return; // Don't start if it's already running
-
-  isRunning = true;
-  startButton.disabled = true;
-  stopButton.disabled = false;
-
-  timer = setInterval(() => {
-    seconds++;
-
-    if (seconds === 60) {
-      seconds = 0;
-      minutes++;
-
-      if (minutes === 60) {
-        minutes = 0;
-        hours++;
-      }
-    }
-
-    updateDisplay();
-  }, 1000);
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-// Function to stop the stopwatch
-function stop() {
-  clearInterval(timer);
-  isRunning = false;
-  startButton.disabled = false;
-  stopButton.disabled = true;
+.container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-// Function to reset the stopwatch
-function reset() {
-  clearInterval(timer);
-  isRunning = false;
-  seconds = 0;
-  minutes = 0;
-  hours = 0;
-  updateDisplay();
-  startButton.disabled = false;
-  stopButton.disabled = true;
+#display {
+  font-size: 48px;
+  margin-bottom: 20px;
 }
 
-// Event Listeners
-startButton.addEventListener('click', start);
-stopButton.addEventListener('click', stop);
-resetButton.addEventListener('click', reset);
+button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
